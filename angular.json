@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Sicop"
+    }
+  },
+  "defaultProject": "Sicop",
+  "cli": {
+    "analytics": false
+  }
 }
