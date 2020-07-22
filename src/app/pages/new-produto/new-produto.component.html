@@ -1,0 +1,124 @@
+<div class="container">
+
+
+  <div class="card mt-3">
+    <div class="card-header">
+      <h4 >Preencha os campos para adicionar um novo produto</h4>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="formProduto">
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label>Emissor</label>
+            <input type="text" class="form-control" formControlName="emissor">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label>Nota fiscal</label>
+            <input type="text" class="form-control" formControlName="notaFiscal">
+          </div>
+
+          <div class="form-group col-md-4">
+            <label>Data da entrada na fabrica</label>
+            <input type="text" class="form-control" formControlName="dataDeEntrega">
+          </div>
+
+          <div class="form-group col-md-4">
+            <label>Nº pedido</label>
+            <input type="text" class="form-control" formControlName="numeroPedido">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label>Status</label>
+            <select class="form-control col-md-8" formControlName="status">
+              <option [value]=0>Em Aberto</option>
+              <option [value]=1>Em Produção</option>
+              <option [value]=2>Concluído</option>
+            </select>
+          </div>
+
+          <div class="form-group col-md-4">
+            <label>Tipo</label>
+            <select class="form-control col-md-8" formControlName="tipoProduto">
+              <option [value]=1>Venda</option>
+              <option [value]=2>Serviço</option>
+              <option [value]=3>Garantia</option>
+            </select>
+          </div>
+
+          <div class="form-group col-md-4">
+            <label>Setor</label>
+            <select class="form-control col-md-8" formControlName="setor">
+              <option [value]=1>Borracha</option>
+              <option [value]=2>Poliuretano</option>
+              <option [value]=3>Usinagem/CNC</option>
+              <option [value]=4>Usinagem/Ferram.</option>
+              <option [value]=5>Acabamento</option>
+              <option [value]=6>Expedição</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label>Cliente</label>
+            <input type="text" class="form-control" formControlName="cliente">
+          </div>
+
+          <div class="form-group col-md-4">
+            <label>Quantidade</label>
+            <input type="number" class="form-control col-md-8" formControlName="quantidade">
+          </div>
+
+          <div class="form-group col-md-4">
+            <label>Descrição do produto</label>
+            <textarea class="form-control" formControlName="descricao"></textarea>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label>Data da conclusão</label>
+            <input type="text" class="form-control col-md-8" formControlName="dataConclusao">
+          </div>
+
+          <div class="form-group col-md-4">
+            <label>Saída</label>
+            <input type="text" class="form-control col-md-8" formControlName="dataDeSaida">
+          </div>
+
+          <div class="form-group col-md-4">
+            <label>Resposável pela retirada</label>
+            <input type="text" class="form-control" formControlName="responsavelRetirada">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-md-8">
+            <label>Observações</label>
+            <textarea class="form-control" formControlName="observacaoDoProduto"></textarea>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="ml-3">
+            <button (click)="addProduto()" [disabled]="!formProduto.valid" class="btn btn-primary btn-icon-split">
+              <span class="text">Adicionar Produto</span>
+            </button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+  
+      
+
+
+</div>
+
+

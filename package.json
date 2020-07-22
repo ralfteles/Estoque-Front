@@ -24,6 +24,7 @@
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
     "rxjs": "~6.5.4",
+    "sweetalert2": "^9.17.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
