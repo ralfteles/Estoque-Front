@@ -3,7 +3,7 @@
 	border-color: #ddd;
 }
 .form-control:focus {
-	border-color: #4aba70; 
+	border-color: #ff6600; 
 }
 .login-form {
 	width: 350px;
