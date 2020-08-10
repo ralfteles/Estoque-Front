@@ -14,5 +14,5 @@ export class ProdutoModel {
   cliente: string;
   tipoProduto: number;
 
-  constructor(){};
+  constructor() {}
 }

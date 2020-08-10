@@ -18,4 +18,8 @@ export class ServiceProdutoService {
   AddProduto(obj) {
     return this.http.post(`${this.urlApi}Produto/AdicionarProduto`, obj);
   }
+
+  obterQuantidadeDeProdutosPorSetor() {
+    return this.http.get(`${this.urlApi}Produto/ObterQuantidadePorSetor`);
+  }
 }

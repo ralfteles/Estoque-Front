@@ -22,7 +22,7 @@
 
           <div class="form-group col-md-4">
             <label>Data da entrada na fabrica</label>
-            <input type="text" class="form-control" formControlName="dataDeEntrega">
+            <input type="date" class="form-control" formControlName="dataDeEntrada">
           </div>
 
           <div class="form-group col-md-4">
@@ -83,12 +83,12 @@
         <div class="row">
           <div class="form-group col-md-4">
             <label>Data da conclusão</label>
-            <input type="text" class="form-control col-md-8" formControlName="dataConclusao">
+            <input type="date" class="form-control col-md-8" formControlName="dataConclusao">
           </div>
 
           <div class="form-group col-md-4">
             <label>Saída</label>
-            <input type="text" class="form-control col-md-8" formControlName="dataDeSaida">
+            <input type="date" class="form-control col-md-8" formControlName="dataDeSaida">
           </div>
 
           <div class="form-group col-md-4">
@@ -106,8 +106,11 @@
 
         <div class="row">
           <div class="ml-3">
-            <button (click)="addProduto()" [disabled]="!formProduto.valid" class="btn btn-primary btn-icon-split">
-              <span class="text">Adicionar Produto</span>
+            <button *ngIf="!salvando" (click)="addProduto()" [disabled]="!formProduto.valid" class="btn btn-primary btn-icon-split">
+              <span class="text">Cadastrar produto</span>
+            </button>
+            <button *ngIf="salvando" disabled class="btn btn-primary btn-icon-split">
+              <i class="fas fa-spinner fa-spin"></i>
             </button>
           </div>
         </div>

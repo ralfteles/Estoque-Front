@@ -49,111 +49,29 @@
              <div class="row">
 
                <!-- Earnings (Monthly) Card Example -->
-               <div class="col-xl-3 col-md-6 mb-4">
+               <div class="col-xl-3 col-md-6 mb-4" *ngFor="let setor of setores">
                  <div class="card border-left-primary shadow h-100 py-2">
                    <div class="card-body">
                      <div class="row no-gutters align-items-center">
                        <div class="col mr-2">
-                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Borracha</div>
-                         <div class="h5 mb-0 font-weight-bold text-gray-800">5</div>
+                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{setor.nomeSetor}}</div>
+                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{setor.quantidade}}</div>
                        </div>
-                       <div class="col-auto">
+                       <!-- <div class="col-auto">
                          <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                       </div>
+                       </div> -->
                      </div>
                    </div>
                  </div>
                </div>
+
+
+    
+
+              
 
                <!-- Earnings (Monthly) Card Example -->
-               <div class="col-xl-3 col-md-6 mb-4">
-                 <div class="card border-left-success shadow h-100 py-2">
-                   <div class="card-body">
-                     <div class="row no-gutters align-items-center">
-                       <div class="col mr-2">
-                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Poliuretano</div>
-                         <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
-                       </div>
-                       <div class="col-auto">
-                         <i class="fas fa-shower fa-2x text-gray-300"></i>
-                       </div>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-
-               <!-- Earnings (Monthly) Card Example -->
-               <div class="col-xl-3 col-md-6 mb-4">
-                 <div class="card border-left-info shadow h-100 py-2">
-                   <div class="card-body">
-                     <div class="row no-gutters align-items-center">
-                       <div class="col mr-2">
-                         <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Usinagem/CNC</div>
-                         <div class="row no-gutters align-items-center">
-                           <div class="col-auto">
-                             <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">7</div>
-                           </div>
-                         </div>
-                       </div>
-                       <div class="col-auto">
-                         <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                       </div>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-
-               <!-- Pending Requests Card Example -->
-               <div class="col-xl-3 col-md-6 mb-4">
-                 <div class="card border-left-warning shadow h-100 py-2">
-                   <div class="card-body">
-                     <div class="row no-gutters align-items-center">
-                       <div class="col mr-2">
-                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Usinagem/Ferram.</div>
-                         <div class="h5 mb-0 font-weight-bold text-gray-800">9</div>
-                       </div>
-                       <div class="col-auto">
-                         <i class="fas fa-comments fa-2x text-gray-300"></i>
-                       </div>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-
-
-               <div class="col-xl-3 col-md-6 mb-4">
-                 <div class="card border-left-warning shadow h-100 py-2">
-                   <div class="card-body">
-                     <div class="row no-gutters align-items-center">
-                       <div class="col mr-2">
-                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Acabamento</div>
-                         <div class="h5 mb-0 font-weight-bold text-gray-800">10</div>
-                       </div>
-                       <div class="col-auto">
-                         <i class="fas fa-cog fa-2x text-gray-300"></i>
-                       </div>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-
-               <div class="col-xl-3 col-md-6 mb-4">
-                 <div class="card border-left-warning shadow h-100 py-2">
-                   <div class="card-body">
-                     <div class="row no-gutters align-items-center">
-                       <div class="col mr-2">
-                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Expedição</div>
-                         <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                       </div>
-                       <div class="col-auto">
-                         <i class="fas fa-cube fa-2x text-gray-300"></i>
-                       </div>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-             </div>
-
+              
 
              <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                aria-hidden="true">

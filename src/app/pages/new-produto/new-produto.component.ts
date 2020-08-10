@@ -4,6 +4,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { ServiceProdutoService } from 'src/app/service/service-produto.service';
 import { ProdutoModel } from 'src/app/model/produtoModel';
 import Swal from 'sweetalert2';
+import { SetorModel } from 'src/app/model/setorModel';
 
 @Component({
   selector: 'app-new-produto',
@@ -14,6 +15,7 @@ export class NewProdutoComponent implements OnInit {
   formProduto: FormGroup;
 
   produtos: ProdutoModel[];
+  salvando: boolean = false;
 
   constructor(
     public formBuilder: FormBuilder,
@@ -22,34 +24,40 @@ export class NewProdutoComponent implements OnInit {
 
   ngOnInit(): void {
     this.montarForm();
+    
   }
 
   montarForm() {
     this.formProduto = this.formBuilder.group({
       emissor: ['', Validators.required],
-      dataDeEntrega: [''],
-      dataConclusao: [''],
-      dataDeSaida: [''],
+      dataDeEntrada: [null, Validators.required],
+      dataConclusao: [null],
+      dataDeSaida: [null],
       numeroPedido: ['', Validators.required],
       notaFiscal: ['', Validators.required],
-      status: ['', Validators.required],
-      setor: ['', Validators.required],
+      status: [1],
+      setor: [1],
+      tipoProduto: [1],
       descricao: [''],
       quantidade: ['', Validators.required],
       responsavelRetirada: [''],
       observacaoDoProduto: [''],
       cliente: ['', Validators.required],
-      tipoProduto: ['', Validators.required],
+      
     });
   }
 
   addProduto() {
+    this.salvando = true;
     this.serviceProduto.AddProduto(this.formProduto.value).subscribe(
       (res: any) => {
+        this.salvando = false;
         this.formProduto.reset();
-        this.msgSucess(res.message)
+        this.msgSucess(res.mensagem)
       },
-      (error) => {}
+      (error) => {
+        this.salvando = false;
+      }
     );
   
 
@@ -64,7 +72,6 @@ export class NewProdutoComponent implements OnInit {
       (error) => {}
     );
   }
-
 
   msgSucess(msg: string){
     Swal.fire(
