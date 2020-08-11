@@ -59,18 +59,8 @@ export class NewProdutoComponent implements OnInit {
         this.salvando = false;
       }
     );
-  
 
 
-  }
-
-  obterProdutos(){
-    this.serviceProduto.ObterProdutos().subscribe(
-      (result: ProdutoModel[]) => {
-        this.produtos = result; 
-      },
-      (error) => {}
-    );
   }
 
   msgSucess(msg: string){

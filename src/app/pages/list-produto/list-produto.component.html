@@ -1,0 +1,144 @@
+<div class="row mb-4" *ngIf="produtos.length > 0">
+  <h3 class="col text-center">Setor {{tipoSetor}}</h3>
+</div>
+
+
+<table class="table table-hover" *ngIf="produtos.length > 0">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Cliente</th>
+      <th scope="col">Numero do pedido</th>
+      <th scope="col">Data de entrada</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let produto of produtos">
+    <tr>
+      <th>#</th>
+      <td>{{produto.cliente}}</td>
+      <td>{{produto.numeroPedido}}</td>
+      <td>{{produto.dataEntradaFormatada}}</td>
+      <td>
+        <button class="btn btn-primary col-4" (click)="openModal(produto)">Detalhes</button>
+        <button class="btn btn-primary col-4 ml-1">Alterar setor</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+<ng-template #detalheModal let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Detalhes do produto</h4>
+    <button type="button" class="close" aria-label="Close" (click)="c('Close click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="form-group col-md-4 d-flex flex-column">
+        <label><strong>Emissor</strong></label>
+        <span>{{produto.emissor}}</span>
+      </div>
+    </div>
+    <hr />
+
+    <div class="row">
+      <div class="form-group col-md-4 d-flex flex-column">
+        <label><strong>Setor</strong></label>
+        <span style="color: green;"><strong>{{produto.setorDescricao}}</strong></span>
+      </div>
+
+      <div class="form-group col-md-4 d-flex flex-column">
+        <label><strong>Status</strong></label>
+        <span>{{produto.statusDescricao}}</span>
+      </div>
+
+      <div class="form-group col-md-4 d-flex flex-column">
+        <label><strong>Tipo</strong></label>
+        <span>{{produto.tipoProdutoDescricao}}</span>
+      </div>
+    </div>
+    <hr />
+
+    <div class="row">
+      <div class="form-group col-md-4 d-flex flex-column">
+        <label><strong>Nota fiscal</strong></label>
+        <span>{{produto.notaFiscal}}</span>
+      </div>
+
+      <div class="form-group col-md-4 d-flex flex-column">
+        <label><strong>Data da entrada na fabrica</strong></label>
+        <span>{{produto.dataEntradaFormatada}}</span>
+      </div>
+
+      <div class="form-group col-md-4 d-flex flex-column">
+        <label><strong>Nº pedido</strong></label>
+        <span>{{produto.numeroPedido}}</span>
+      </div>
+    </div>
+    <hr />
+
+    <div class="row">
+      <div class="form-group col-md-4 d-flex flex-column">
+        <label><strong>Data da conclusão</strong></label>
+        <span>{{produto.dataConclusaoFormatada}}</span>
+      </div>
+
+      <div class="form-group col-md-4 d-flex flex-column">
+        <label><strong>Saída</strong></label>
+        <span>{{produto.dataDeSaidaFormatada}}</span>
+      </div>
+
+      <div class="form-group col-md-4 d-flex flex-column">
+        <label><strong>Resposável pela retirada</strong></label>
+        <span>{{produto.responsavelRetirada}}</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-4 d-flex flex-column">
+        <label><strong>Cliente</strong></label>
+        <span>{{produto.cliente}}</span>
+      </div>
+
+      <div class="form-group col-md-4 d-flex flex-column">
+        <label><strong>Quantidade</strong></label>
+        <span>{{produto.quantidade}}</span>
+      </div>
+
+      <div class="form-group col-md-4 d-flex flex-column">
+        <label><strong>Descrição do produto</strong></label>
+        <span>{{produto.descricao}}</span>
+      </div>
+    </div>
+    <hr/>
+
+    <div class="row">
+      <div class="form-group col-md-8 d-flex flex-column">
+        <label><strong>Observações</strong></label>
+        <span>{{produto.observacaoDoProduto}}</span>
+      </div>
+    </div>
+
+    <hr/>
+    <div class="row">
+      <div class="form-group col-md-8 d-flex flex-column">
+        <h4>Histórico do produto</h4>
+        <ul>
+            <li>Entrada no sistema: {{produto.dataEntradaFormatada}}</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" aria-label="Close" (click)="c('Close click')">
+      Fechar
+    </button>
+  </div>
+
+</ng-template>

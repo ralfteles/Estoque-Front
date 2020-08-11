@@ -11,8 +11,8 @@ export class ServiceProdutoService {
   private header = new HttpHeaders();
   constructor(public http: HttpClient) { }
 
-  ObterProdutos() {
-    return this.http.get(`${this.urlApi}Produto/ObterTodos`);
+  ObterProdutosPorSetor(setor) {
+    return this.http.get(`${this.urlApi}Produto/ObterProdutosPorSetor?setorId=${setor}`);
   }
 
   AddProduto(obj) {

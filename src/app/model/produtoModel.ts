@@ -13,6 +13,13 @@ export class ProdutoModel {
   observacaoDoProduto: string;
   cliente: string;
   tipoProduto: number;
+  dataEntradaFormatada: string;
+  dataConclusaoFormatada: string;
+  dataDeSaidaFormatada: string;
+  statusDescricao: string;
+  setorDescricao: string;
+  tipoProdutoDescricao: string;
+
 
   constructor() {}
 }
