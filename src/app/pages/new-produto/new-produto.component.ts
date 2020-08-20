@@ -5,6 +5,8 @@ import { ServiceProdutoService } from 'src/app/service/service-produto.service';
 import { ProdutoModel } from 'src/app/model/produtoModel';
 import Swal from 'sweetalert2';
 import { SetorModel } from 'src/app/model/setorModel';
+import { Router } from '@angular/router';
+import { StorageService } from 'src/app/service/storage.service';
 
 @Component({
   selector: 'app-new-produto',
@@ -19,11 +21,16 @@ export class NewProdutoComponent implements OnInit {
 
   constructor(
     public formBuilder: FormBuilder,
-    public serviceProduto: ServiceProdutoService
+    public serviceProduto: ServiceProdutoService,
+    public router: Router,
+    public storage: StorageService
   ) {}
 
   ngOnInit(): void {
     this.montarForm();
+    if(this.storage.getItem('usuario') == null){
+      this.router.navigate(['']);
+    }
     
   }
 
@@ -57,10 +64,11 @@ export class NewProdutoComponent implements OnInit {
       },
       (error) => {
         this.salvando = false;
+        if(error.status == 401){
+          this.router.navigate(['']);
+        }
       }
     );
-
-
   }
 
   msgSucess(msg: string){

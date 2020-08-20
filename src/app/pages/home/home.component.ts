@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { SetorModel } from 'src/app/model/setorModel';
 import { ServiceProdutoService } from 'src/app/service/service-produto.service';
 import { ProdutoModel } from 'src/app/model/produtoModel';
+import { UsuarioModel } from 'src/app/model/usuarioModel';
+import { StorageService } from 'src/app/service/storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,11 +17,19 @@ export class HomeComponent implements OnInit {
   produtos: ProdutoModel[] = [];
   setor: String = "";
   loading: boolean = false;
+  nome: string;
   
-  constructor(public serviceProduto: ServiceProdutoService) { }
+  constructor(
+    public serviceProduto: ServiceProdutoService,
+    public storage: StorageService,
+    public router: Router) { }
 
   ngOnInit(): void {
     this.obterQtdProdutosPorSetor();
+ 
+    let storage = this.storage.getItem('usuario');
+    this.nome = storage.userToken.nome;
+
   }
 
   obterQtdProdutosPorSetor(){
@@ -26,7 +37,11 @@ export class HomeComponent implements OnInit {
       (result: SetorModel[]) => {
         this.setores = result; 
       },
-      (error) => {}
+      (error) => {
+        if(error.status == 401){
+          this.router.navigate(['']);
+        }
+      }
     );
   }
 
@@ -43,7 +58,15 @@ export class HomeComponent implements OnInit {
       },
       (error) => {
         this.loading = false;
+        if(error.status == 401){
+          this.router.navigate(['']);
+        }
       }
     );
+  }
+
+  logout(){
+    this.storage.clear();
+    this.router.navigate(['']);
   }
 }
